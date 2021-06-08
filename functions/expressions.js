@@ -18,33 +18,33 @@ exports.handler = async (event, context) => {
   const size = event.queryStringParameters.size;
   const flip = event.queryStringParameters.flip === 'true';
 
-  // const base = await paint(process.env.DEPLOY_URL, {
-  //   background,
-  //   gender,
-  //   expression,
-  //   expressionTemplate,
-  //   innerColorHue,
-  //   overlay,
-  //   overlayHue,
-  //   useShadow,
-  //   shadowHue,
-  //   wireframeHue,
-  //   useWireframe,
-  //   useWireframeBlend,
-  //   wireframeBlendStyle,
-  //   size,
-  //   flip,
-  // });
+  const base = await paint(process.env.URL, {
+    background,
+    gender,
+    expression,
+    expressionTemplate,
+    innerColorHue,
+    overlay,
+    overlayHue,
+    useShadow,
+    shadowHue,
+    wireframeHue,
+    useWireframe,
+    useWireframeBlend,
+    wireframeBlendStyle,
+    size,
+    flip,
+  });
 
-  // const buffer = await new Promise((resolve, reject) => {
-  //   base.getBuffer(Jimp.MIME_PNG, (err, buffer) => {
-  //     if (err) {
-  //         reject(err);
-  //     }
+  const buffer = await new Promise((resolve, reject) => {
+    base.getBuffer(Jimp.MIME_PNG, (err, buffer) => {
+      if (err) {
+          reject(err);
+      }
 
-  //     resolve(buffer);
-  //   });
-  // });
+      resolve(buffer);
+    });
+  });
 
-  return { statusCode: 200, body: JSON.stringify(process.env) };
+  return { statusCode: 200, body: JSON.stringify(buffer) };
 };
