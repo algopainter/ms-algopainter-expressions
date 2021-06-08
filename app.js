@@ -63,6 +63,11 @@ app.get('/', async (req, res) => {
     }
 });
 
+app.get('/expressions-resized/*', async (req, res) => {
+  res.setHeader('Content-Type', 'image/png');
+  res.sendFile(`${__dirname}${req.path}`);
+});
+
 app.listen(port, function () {
     console.log('Ready');
 });
