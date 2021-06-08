@@ -28,7 +28,7 @@ app.get('/', async (req, res) => {
       const size = req.query.size;
       const flip = req.query.flip === 'true';
         
-      const base = await paint({
+      const base = await paint('.', {
         background,
         gender,
         expression,

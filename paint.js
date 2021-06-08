@@ -1,7 +1,7 @@
 const Jimp = require('jimp');
 const fs = require('fs')
  
-module.exports = async ({
+module.exports = async (initialPath, {
   background,
   gender,
   expression,
@@ -18,7 +18,7 @@ module.exports = async ({
   size,
   flip,
 }) => {
-  const path = !size ? '/expressions' : `/expressions-resized/${size}/expressions`;
+  const path = !size ? `${initialPath}/expressions` : `${initialPath}/expressions-resized/${size}/expressions`;
 
   const backgroundFile = await Jimp.read(`${path}/background/BG${background}.png`);
   const expressionFile = await Jimp.read(`${path}/expressions/${gender}_${expression}_T${expressionTemplate}.png`);

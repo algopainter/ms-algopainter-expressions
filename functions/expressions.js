@@ -18,7 +18,7 @@ exports.handler = async (event, context) => {
   const size = event.queryStringParameters.size;
   const flip = event.queryStringParameters.flip === 'true';
 
-  const base = await paint({
+  const base = await paint(process.env.DEPLOY_URL, {
     background,
     gender,
     expression,
@@ -36,15 +36,15 @@ exports.handler = async (event, context) => {
     flip,
   });
 
-  // const buffer = await new Promise((resolve, reject) => {
-  //   base.getBuffer(Jimp.MIME_PNG, (err, buffer) => {
-  //     if (err) {
-  //         reject(err);
-  //     }
+  const buffer = await new Promise((resolve, reject) => {
+    base.getBuffer(Jimp.MIME_PNG, (err, buffer) => {
+      if (err) {
+          reject(err);
+      }
 
-  //     resolve(buffer);
-  //   });
-  // });
+      resolve(buffer);
+    });
+  });
 
   return { statusCode: 200, body: JSON.stringify(event.queryStringParameters) };
 };
