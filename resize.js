@@ -1,7 +1,7 @@
 const Jimp = require('jimp');
 
-const width = 600;
-const height = 600;
+const width = 400;
+const height = 400;
  
 async function run(file) {
     console.log(`Resizing ${file}`);
