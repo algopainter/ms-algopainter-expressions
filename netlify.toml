@@ -1,6 +1,6 @@
 [functions]
   directory = "netlify"
-  included_files = ["expression-resized/**"]
+  included_files = ["./expression-resized/**"]
 
 [[headers]]
   for = "/*"
