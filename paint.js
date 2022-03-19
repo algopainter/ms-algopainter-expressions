@@ -20,12 +20,12 @@ module.exports = async (initialPath, {
 }) => {
   const path = !size ? `${initialPath}/expressions` : `${initialPath}/expressions-resized/${size}/expressions`;
 
-  const backgroundFile = await Jimp.read(`${path}/background/BG${background}.png`);
-  const expressionFile = await Jimp.read(`${path}/expressions/${gender}_${expression}_T${expressionTemplate}.png`);
-  const shadowFile = useShadow ? await Jimp.read(`${path}/shadow/${gender}_shadow.png`) : null;
-  const wireframeFile = useWireframe ? await Jimp.read(`${path}/wireframe/${gender}_${expression}.png`) : null;
-  const innerColorFile = await Jimp.read(`${path}/innercolor/${gender}_${expression}.png`);
-  const overlayFile = overlay ? await Jimp.read(`${path}/overlay/overlay_${overlay}.png`) : null;
+  const backgroundFile = await Jimp.read(`${path}/background/BG${background}.png?raw=true`);
+  const expressionFile = await Jimp.read(`${path}/expressions/${gender}_${expression}_T${expressionTemplate}.png?raw=true`);
+  const shadowFile = useShadow ? await Jimp.read(`${path}/shadow/${gender}_shadow.png?raw=true`) : null;
+  const wireframeFile = useWireframe ? await Jimp.read(`${path}/wireframe/${gender}_${expression}.png?raw=true`) : null;
+  const innerColorFile = await Jimp.read(`${path}/innercolor/${gender}_${expression}.png?raw=true`);
+  const overlayFile = overlay ? await Jimp.read(`${path}/overlay/overlay_${overlay}.png?raw=true`) : null;
 
   if (shadowFile) {
     shadowFile.color([

@@ -1,7 +1,5 @@
 [functions]
   directory = "netlify"
-  included_files = ["expressions/**/*.png", "expressions-resized/**/*.png"]
-  node_bundler = 'esbuild'
 
 
 [[headers]]

@@ -19,7 +19,7 @@ module.exports.handler = async function (event, context) {
   const size = event.queryStringParameters.size;
   const flip = event.queryStringParameters.flip === 'true';
 
-  const base = await paint('.', {
+  const base = await paint('https://github.com/algopainter/ms-algopainter-expressions/blob/master', {
     background,
     gender,
     expression,
