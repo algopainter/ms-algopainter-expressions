@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
+    "netlify": "netlify dev",
     "start:3001": "PORT=3001 node server.js"
   },
   "repository": {
@@ -26,5 +27,8 @@
     "js-sha256": "^0.9.0",
     "seedrandom": "^3.0.5",
     "vue-worker": "^1.2.1"
+  },
+  "devDependencies": {
+    "netlify-cli": "^9.13.3"
   }
 }

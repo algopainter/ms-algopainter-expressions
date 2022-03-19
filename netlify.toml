@@ -1,8 +1,8 @@
 [functions]
   directory = "netlify"
-  included_files = ["expressions-resized/**", "expressions-resized/400x400/**", "expressions-resized/400x400/background/**"]
-  node_bundler = "esbuild"
-  external_node_modules = ["expressions-resized"]
+  included_files = ["expressions/**/*.png", "expressions-resized/**/*.png"]
+  node_bundler = 'esbuild'
+
 
 [[headers]]
   for = "/*"
