@@ -17,8 +17,9 @@ module.exports.handler = async function(event, context) {
       const wireframeBlendStyle = event.queryStringParameters.wireframeBlendStyle;
       const size = event.queryStringParameters.size;
       const flip = event.queryStringParameters.flip === 'true';
+      const dir = event.queryStringParameters.dir || '.';
         
-      const base = await paint('../../', {
+      const base = await paint(dir, {
         background,
         gender,
         expression,
