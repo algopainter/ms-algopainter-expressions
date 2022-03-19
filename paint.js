@@ -19,6 +19,8 @@ module.exports = async (initialPath, {
   flip,
 }) => {
   const path = !size ? `${initialPath}expressions` : `${initialPath}expressions-resized/${size}/expressions`;
+  var files = fs.readdirSync(initialPath);
+  console.log(files);
 
   const backgroundFile = await Jimp.read(`${path}/background/BG${background}.png`);
   const expressionFile = await Jimp.read(`${path}/expressions/${gender}_${expression}_T${expressionTemplate}.png`);
